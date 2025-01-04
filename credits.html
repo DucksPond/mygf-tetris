@@ -68,6 +68,7 @@
             align-items: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             position: relative;
+            cursor: pointer;
         }
 
         #circle img {
@@ -103,10 +104,20 @@
         <button class="nav-button" onclick="location.href='home.html'">Home</button>
     </div>
     <div id="main-text">Credit(s)</div>
-    <div id="circle">
+    <div id="circle" onclick="playSound()">
         <img src="https://lh3.googleusercontent.com/pw/AP1GczMVcB_IG74gBxC-TvPZIRieUZpF0MlisGjxeSWbYV_M3kapIjCDa54BEch5MB6mw_sPTEUC9j7sR8GNnvz095cR52-3mNbnOoN1qmiT0ZHbVQIxItQDmlVhXcra1edScXm0Gjxpw_raril6bU_etg6Q=w485-h647-s-no-gm?authuser=0" alt="Center Image">
     </div>
     <div id="hover-text">Made by me.</div>
     <div id="sub-hover-text">Inspiration by my sweet caring loving girlfriend!!</div>
+
+    <audio id="myAudio" src="file:///home/chronos/u-a49a14428be39d1ad35159f0d57fb379f6bbeea1/MyFiles/Downloads/win31.mp3"></audio>
+
+    <script>
+        function playSound() {
+            var audio = document.getElementById('myAudio');
+            audio.play();
+        }
+    </script>
 </body>
 </html>
+
