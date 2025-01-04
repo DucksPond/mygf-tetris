@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Tetris</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+.top-left-text {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'Baskerville', serif;
+            font-size: 18px; /* Increased font size */
+            color: pink; /* Changed text color to pink */
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left-text">This Is KAYLEES PAGE</div>
+    </style>
+</head>
+<body>
+    </style>
+</head>
+<body>
+    <iframe src="https://geometry-tryhard.top/assets/flash/?game=SWF/flashtetris.swf"></iframe>
+</body>
+</html>
