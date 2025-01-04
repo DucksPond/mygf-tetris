@@ -96,6 +96,58 @@
             from { opacity: 1; background-color: white; }
             to { opacity: 0; background-color: pink; }
         }
+
+        .settings-container {
+            display: none; /* Hide settings container initially */
+            position: absolute;
+            top: 50px;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .settings-box {
+            width: 30%;
+            height: 200px;
+            background: grey;
+            animation: pulse 1s infinite;
+            border: 2px solid lightgrey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulse {
+            0% { background-color: grey; }
+            50% { background-color: lightgrey; }
+            100% { background-color: grey; }
+        }
+
+        .slider {
+            width: 80%;
+        }
+
+        .credits-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: grey;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .credits-button:hover::after {
+            content: 'Credits';
+            position: absolute;
+            top: -30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +160,20 @@
     <div class="button-container">
         <button class="button" onclick="location.href='all.html'">🎮</button>
         <button class="button" onclick="location.href='notes.html'">📝</button>
-        <button class="button" onclick="location.href='settings.html'">⚙️</button>
+        <button class="button" onclick="toggleSettings()">⚙️</button>
+    </div>
+
+    <div class="settings-container" id="settings-container">
+        <div class="settings-box">
+            <input type="range" min="0" max="360" value="0" class="slider" id="hue-slider">
+        </div>
+        <div class="settings-box">
+            <label for="google-tab-cloak">Turn on Google Tab Cloak</label>
+            <input type="checkbox" id="google-tab-cloak">
+        </div>
+        <div class="settings-box">
+            <button class="credits-button" onclick="location.href='credits.html'">🕴️</button>
+        </div>
     </div>
 
     <script>
@@ -116,6 +181,7 @@
         const mainContent = document.querySelector('.button-container');
         const header = document.querySelector('h1');
         const introGif = document.querySelector('.intro-gif');
+        const settingsContainer = document.getElementById('settings-container');
 
         // Generate a random duration between 5-10 seconds
         const randomDuration = Math.floor(Math.random() * 6000) + 5000;
@@ -154,6 +220,28 @@
 
             }, 1000); // Match the fadeOut animation duration
         }, randomDuration);
+
+        function toggleSettings() {
+            settingsContainer.style.display = settingsContainer.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Hue slider event
+        const hueSlider = document.getElementById('hue-slider');
+        hueSlider.addEventListener('input', (event) => {
+            document.body.style.filter = `hue-rotate(${event.target.value}deg)`;
+        });
+
+        // Google Tab Cloak checkbox event
+        const googleTabCloak = document.getElementById('google-tab-cloak');
+        googleTabCloak.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                document.title = 'Google';
+                document.querySelector("link[rel='icon']").href = 'https://www.google.com/favicon.ico';
+            } else {
+                document.title = "My Girlfriend's Tetris Website";
+                document.querySelector("link[rel='icon']").href = 'https://i.pinimg.com/originals/33/95/06/339506e7f24dfe8a71da85e7de7961fc.png';
+            }
+        });
     </script>
 </body>
 </html>
