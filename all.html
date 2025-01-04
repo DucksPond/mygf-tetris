@@ -27,6 +27,24 @@
             100% { background-position: 0% 50%; }
         }
 
+        .title {
+            font-size: 48px;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .title span {
+            color: #ff69b4; /* Default color */
+            animation: colorChange 5s infinite;
+        }
+
+        @keyframes colorChange {
+            0%, 100% { color: #ff69b4; } /* Hot pink */
+            25% { color: #ff1493; } /* Deep pink */
+            50% { color: #ffb6c1; } /* Light pink */
+            75% { color: #ffc0cb; } /* Pink */
+        }
+
         .square-container {
             display: flex;
             flex-wrap: wrap;
@@ -70,7 +88,7 @@
         }
 
         .square[data-name="Block Blast"] {
-            background-image: url('https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-879100-52.jpg');
+            background-image: url('https://images.igdb.com/igdb/image/upload/t_1080p_2x/co7oe8.webp');
         }
 
         .ribbons {
@@ -117,6 +135,11 @@
             <li onclick="location.href='notes.html'">Notes</li>
             <li onclick="location.href='settings.html'">Settings</li>
         </ul>
+    </div>
+
+    <div class="title">
+        <span>T</span><span>e</span><span>t</span><span>r</span><span>i</span><span>s</span>
+        <span> </span><span>S</span><span>e</span><span>l</span><span>e</span><span>c</span><span>t</span><span>i</span><span>o</span><span>n</span>
     </div>
 
     <div class="square-container">
