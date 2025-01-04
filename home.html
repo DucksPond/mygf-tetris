@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="https://em-content.zobj.net/source/apple/96/cherry-blossom_1f338.png">
+    <link rel="icon" type="image/webp" href="https://i.pinimg.com/originals/33/95/06/339506e7f24dfe8a71da85e7de7961fc.png">
     <title>My Girlfriend's Tetris Website</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
@@ -70,7 +70,7 @@
         }
 
         @keyframes fadeOut {
-            from { opacity: 1; background-color: black; }
+            from { opacity: 1; background-color: white; }
             to { opacity: 0; background-color: white; }
         }
     </style>
@@ -93,14 +93,17 @@
         const header = document.querySelector('h1');
         const introGif = document.querySelector('.intro-gif');
 
-        introGif.addEventListener('ended', () => {
+        // Generate a random duration between 5-10 seconds
+        const randomDuration = Math.floor(Math.random() * 6000) + 5000;
+
+        setTimeout(() => {
             introContainer.style.animation = 'fadeOut 1s forwards';
             setTimeout(() => {
                 introContainer.style.display = 'none';
                 mainContent.style.display = 'flex';
                 header.style.display = 'block';
             }, 1000); // Match the fadeOut animation duration
-        });
+        }, randomDuration);
     </script>
 </body>
 </html>
