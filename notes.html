@@ -1,13 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Quote</title>
+    <title>Notes To Her Everyday</title>
     <style>
         body {
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -15,6 +17,7 @@
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             overflow: hidden;
+            text-align: center;
         }
 
         @keyframes gradient {
@@ -23,26 +26,57 @@
             100% { background-position: 0% 50%; }
         }
 
-        #quote-container {
-            text-align: center;
-        }
-
-        #quote {
+        #main-text {
             font-family: 'Cursive', sans-serif;
-            font-size: 2em;
+            font-size: 3em;
             font-weight: bold;
             color: #ffffff;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        #gif-container {
+        #sub-text {
+            font-family: 'Cursive', sans-serif;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        #quote {
+            font-family: 'Cursive', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: #000000;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+
+        #quote-container {
+            margin: 20px 0;
+        }
+
+        #gif-container-top {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #gif-container-bottom {
             position: absolute;
             bottom: 20px;
             left: 20px;
         }
 
         @media (max-width: 768px) {
+            #main-text {
+                font-size: 2.5em;
+            }
+            #sub-text {
+                font-size: 1.2em;
+            }
             #quote {
                 font-size: 1.5em;
             }
@@ -50,17 +84,22 @@
     </style>
 </head>
 <body>
+    <div id="main-text">Notes To Her Everyday</div>
+    <div id="sub-text">New Notes Everyday At 12:00</div>
     <div id="quote-container">
         <h1 id="quote"></h1>
     </div>
-    <div id="gif-container">
-        <img src="https://i.pinimg.com/originals/36/80/48/3680488ab71368a1fea7a7fc2bbbd8f5.gif" alt="KITTY!!!">
+    <div id="gif-container-top">
+        <img src="https://em-content.zobj.net/source/animated-noto-color-emoji/356/growing-heart_1f497.gif" alt="Growing Heart Gif">
+    </div>
+    <div id="gif-container-bottom">
+        <img src="https://i.pinimg.com/originals/36/80/48/3680488ab71368a1fea7a7fc2bbbd8f5.gif" alt="Dancing Gif">
     </div>
 
     <script>
         const quotes = [
             "I Love You So So Much My Love. - Your BF",
-            "Life is 10% what happens to us and 90% how we react to it. - Your BF",
+            "Life is 10% what happens to us and 90% how we love to spend it with each other. - Your BF",
             "The only way to love someone, is to know someone like you. - Your BF",
             "Always look in the right direction. Thats yours btw! - Your BF",
             "We dated on the 29 of September 2024. Is just me or does it feel like thats the best day of my life? - Your BF"
