@@ -18,6 +18,7 @@
             background-size: 200% 200%;
             animation: gradient 15s ease infinite;
             font-family: 'Dancing Script', cursive;
+            position: relative;
         }
 
         @keyframes gradient {
@@ -35,7 +36,8 @@
         .square {
             width: 150px;
             height: 150px;
-            background-color: white;
+            background-size: cover;
+            background-position: center;
             margin: 20px;
             display: flex;
             justify-content: center;
@@ -56,23 +58,29 @@
         }
 
         .square[data-name="Super Tetris (Kaylees Version)"] {
-            background-image: url('super-tetris-image.jpg');
+            background-image: url('https://ios.najox.com/files/pictures/super_tetris.webp');
         }
 
         .square[data-name="Orginal Tetris"] {
-            background-image: url('original-tetris-image.jpg');
+            background-image: url('https://m.media-amazon.com/images/I/61M3rDwh4qL.png');
         }
 
         .square[data-name="Sandtris"] {
-            background-image: url('sandtris-image.jpg');
+            background-image: url('https://d326lupd521z61.cloudfront.net/uploads/webp/images/sandtrix.webp');
         }
 
         .square[data-name="Block Blast"] {
-            background-image: url('block-blast-image.jpg');
+            background-image: url('https://lh4.googleusercontent.com/yoNGUxwbXKN4_CNpdjPqrvZNuBhdgFOpqzGx1F-10mkbKcMz94DQ4qsOUqsUrUz-DamVL46NtnBikSRZ9SMgUCc=w1280');
         }
 
-        .square:hover {
-            transform: scale(1.1);
+        .ribbons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2014/04/03/11/48/bow-312611_960_720.png') repeat;
+            background-size: 100px 100px;
+            opacity: 0.2;
+            z-index: -1;
         }
 
         .menu-bar {
@@ -117,5 +125,7 @@
         <div class="square" data-name="Sandtris" onclick="location.href='sandtris.html'"></div>
         <div class="square" data-name="Block Blast" onclick="location.href='block-blast.html'"></div>
     </div>
+
+    <div class="ribbons"></div>
 </body>
 </html>
