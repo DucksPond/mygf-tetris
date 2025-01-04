@@ -37,6 +37,7 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            display: none; /* Hide the main screen initially */
         }
 
         .button {
@@ -50,14 +51,55 @@
         .button:hover {
             transform: scale(1.1);
         }
+
+        .intro-container {
+            background: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-gif {
+            width: 50%;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
     </style>
 </head>
 <body>
+    <div class="intro-container" id="intro-container">
+        <img src="file:///home/chronos/u-a49a14428be39d1ad35159f0d57fb379f6bbeea1/MyFiles/Downloads/ezgif-4-02a6beaad9.gif" alt="Intro GIF" class="intro-gif">
+    </div>
+
     <h1>My Girlfriend's Tetris Website</h1>
     <div class="button-container">
         <button class="button" onclick="location.href='all.html'">🎮</button>
         <button class="button" onclick="location.href='notes.html'">📝</button>
         <button class="button" onclick="location.href='settings.html'">⚙️</button>
     </div>
+
+    <script>
+        const introContainer = document.getElementById('intro-container');
+        const mainContent = document.querySelector('.button-container');
+        const header = document.querySelector('h1');
+        const introGif = document.querySelector('.intro-gif');
+
+        introGif.addEventListener('ended', () => {
+            introContainer.style.animation = 'fadeOut 1s forwards';
+            setTimeout(() => {
+                introContainer.style.display = 'none';
+                mainContent.style.display = 'flex';
+                header.style.display = 'block';
+            }, 1000); // Match the fadeOut animation duration
+        });
+    </script>
 </body>
 </html>
