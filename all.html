@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/webp" href="file:///home/chronos/u-a49a14428be39d1ad35159f0d57fb379f6bbeea1/MyFiles/Downloads/file.png">
-    <title>Kaylee's Selections</title>
+    <link rel="icon" type="image/webp" href="https://imgproxy.attic.sh/unsafe/rs:fit:768:768:1:1/t:1:FF00FF:false:false/pngo:false:true:256/aHR0cHM6Ly9hdHRp/Yy5zaC9md2x5ZGVw/aWxydnFnbndna20w/ZnZkNjYyMWJ1.png">
+    <title>Tetris Selection</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
@@ -92,22 +92,6 @@
             background-image: url('https://images.igdb.com/igdb/image/upload/t_1080p_2x/co7oe8.webp');
         }
 
-        .square[data-name="Google Snake"] {
-            background-image: url('https://cdn-1.webcatalog.io/catalog/google-snake/google-snake-icon-filled-256.png?');
-        }
-
-        .square[data-name="Solitaire"] {
-            background-image: url('https://www.gsoftteam.com/sites/default/files/styles/to_jpeg/public/promo_1920x1080.png');
-        }
-
-        .square[data-name="Minesweeper"] {
-            background-image: url('https://static.wikia.nocookie.net/logopedia/images/9/98/Minesweeper_1992.png/');
-        }
-
-        .square[data-name="Chess"] {
-            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/010/350/083/small/pawn-black-and-white-chess-piece-illustration-vector.jpg');
-        }
-
         .ribbons {
             position: absolute;
             width: 100%;
@@ -115,7 +99,7 @@
             background: url('https://cdn.pixabay.com/photo/2014/04/03/11/48/bow-312611_960_720.png') repeat;
             background-size: 100px 100px;
             opacity: 0.2;
-            z-index: -1.
+            z-index: -1;
         }
 
         .menu-bar {
@@ -125,22 +109,22 @@
             background-color: rgba(255, 255, 255, 0.7);
             border-radius: 10px;
             padding: 10px;
-            cursor: pointer.
+            cursor: pointer;
         }
 
         .menu-bar ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            display: none.
+            display: none;
         }
 
         .menu-bar:hover ul {
-            display: block.
+            display: block;
         }
 
         .menu-bar li {
-            margin: 5px 0.
+            margin: 5px 0;
         }
 
         .settings-container {
@@ -149,7 +133,7 @@
             top: 50px;
             width: 80%;
             display: flex;
-            justify-content: space-between.
+            justify-content: space-between;
         }
 
         .settings-box {
@@ -161,7 +145,7 @@
             display: none; /* Hide settings boxes initially */
             flex-direction: column;
             justify-content: center;
-            align-items: center.
+            align-items: center;
         }
 
         @keyframes pulse {
@@ -171,7 +155,7 @@
         }
 
         .slider {
-            width: 80%.
+            width: 80%;
         }
 
         .credits-button {
@@ -181,7 +165,7 @@
             background: grey;
             border: none;
             cursor: pointer;
-            position: relative.
+            position: relative;
         }
 
         .credits-button:hover::after {
@@ -192,7 +176,7 @@
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
-            font-size: 14px.
+            font-size: 14px;
         }
     </style>
 </head>
@@ -207,9 +191,8 @@
     </div>
 
     <div class="title">
-        <span>K</span><span>a</span><span>l</span><span>e</span><span>,</span>
-        <span> </span><span>C</span><span>h</span><span>o</span><span>o</span><span>s</span><span>e</span>
-        <span> </span><span>O</span><span>n</span><span>e</span><span>!</span><span>!</span>
+        <span>T</span><span>e</span><span>t</span><span>r</span><span>i</span><span>s</span>
+        <span> </span><span>S</span><span>e</span><span>l</span><span>e</span><span>c</span><span>t</span><span>i</span><span>o</span><span>n</span>
     </div>
 
     <div class="square-container">
@@ -217,10 +200,6 @@
         <div class="square" data-name="Orginal Tetris" onclick="location.href='original-tetris.html'"></div>
         <div class="square" data-name="Sandtris" onclick="location.href='sandtris.html'"></div>
         <div class="square" data-name="Block Blast" onclick="location.href='block-blast.html'"></div>
-        <div class="square" data-name="Google Snake" onclick="location.href='google-snake.html'"></div>
-        <div class="square" data-name="Solitaire" onclick="location.href='solitaire.html'"></div>
-        <div class="square" data-name="Minesweeper" onclick="location.href='minesweeper.html'"></div>
-        <div class="square" data-name="Chess" onclick="location.href='chess.html'"></div>
     </div>
 
     <div class="ribbons"></div>
@@ -235,4 +214,34 @@
         </div>
         <div class="settings-box">
             <button class="credits-button" onclick="location.href='credits.html'">🕴️</button>
-    
+        </div>
+    </div>
+
+    <script>
+        function toggleSettings() {
+            const settingsContainer = document.getElementById('settings-container');
+            const settingsBoxes = document.querySelectorAll('.settings-box');
+
+            const isSettingsVisible = settingsContainer.style.display === 'flex';
+            settingsContainer.style.display = isSettingsVisible ? 'none' : 'flex';
+
+            settingsBoxes.forEach(box => {
+                box.style.display = isSettingsVisible ? 'none' : 'flex';
+            });
+        }
+
+        // Hue slider event
+        const hueSlider = document.getElementById('hue-slider');
+        hueSlider.addEventListener('input', (event) => {
+            document.body.style.filter = `hue-rotate(${event.target.value}deg)`;
+        });
+
+        // Google Tab Cloak checkbox event
+        const googleTabCloak = document.getElementById('google-tab-cloak');
+        googleTabCloak.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                document.title = 'Google';
+                document.querySelector("link[rel='icon']").href = 'https://www.google.com/favicon.ico';
+            } else {
+                document.title = "Tetris Selection";
+                document.querySelector("link[rel='icon']").href = 'file:///home/chronos/u-a49a14428be39d1ad351
