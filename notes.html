@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,6 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             height: 100vh;
             background: linear-gradient(135deg, #FFC0CB, #FFFF00);
@@ -28,21 +26,20 @@
 
         #main-text {
             font-family: 'Cursive', sans-serif;
-            font-size: 3em;
+            font-size: 2em;
             font-weight: bold;
             color: #ffffff;
-            margin: 0;
+            margin: 20px 0 0 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         #sub-text {
             font-family: 'Cursive', sans-serif;
-            font-size: 1.5em;
+            font-size: 1em;
             font-weight: bold;
             color: #ffffff;
-            margin: 0;
+            margin: 0 0 20px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            margin-bottom: 20px;
         }
 
         #quote {
@@ -60,8 +57,13 @@
 
         #gif-container-top {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 10px;
+            right: 10px;
+        }
+
+        #gif-container-top img {
+            width: 50px;
+            height: 50px;
         }
 
         #gif-container-bottom {
@@ -72,10 +74,10 @@
 
         @media (max-width: 768px) {
             #main-text {
-                font-size: 2.5em;
+                font-size: 1.5em;
             }
             #sub-text {
-                font-size: 1.2em;
+                font-size: 0.8em;
             }
             #quote {
                 font-size: 1.5em;
@@ -98,13 +100,12 @@
 
     <script>
         const quotes = [
-            "I Love You So So Much My Love. - Your BF",
-            "Life is 10% what happens to us and 90% how we love to spend it with each other. - Your BF",
-            "The only way to love someone, is to know someone like you. - Your BF",
-            "Always look in the right direction. Thats yours btw! - Your BF",
-            "We dated on the 29 of September 2024. Is just me or does it feel like thats the best day of my life? - Your BF"
-            "I Will never stop loving you! - Your BF"
-            "Even when we die, my grave will be next to you. - Your BF"
+            "The best way to predict the future is to invent it. - Alan Kay",
+            "Life is 10% what happens to us and 90% how we love how much we spent it together. - Charles R. Swindoll",
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
+            "The best time to plant a tree was 20 years ago. The second best time is now. - Chinese Proverb"
+            // Add more quotes as desired
         ];
 
         function getDailyQuote() {
@@ -118,7 +119,12 @@
             return quotes[index];
         }
 
-        document.getElementById("quote").innerText = getDailyQuote();
+        function updateQuote() {
+            document.getElementById("quote").innerText = getDailyQuote();
+        }
+
+        updateQuote(); // Initial update
+        setInterval(updateQuote, 24 * 60 * 60 * 1000); // Update every 24 hours
     </script>
 </body>
 </html>
