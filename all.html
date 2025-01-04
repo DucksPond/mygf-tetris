@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/webp" href="https://em-content.zobj.net/source/apple/96/cherry-blossom_1f338.png">
-    <title>Tetris Selection</title>
+    <link rel="icon" type="image/webp" href="https://i.pinimg.com/originals/33/95/06/339506e7f24dfe8a71da85e7de7961fc.png">
+    <title>My Girlfriend's Tetris Website</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
@@ -15,11 +15,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, pink, lightpink);
-            background-size: 200% 200%;
+            background: linear-gradient(90deg, pink, lightpink, pink);
+            background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             font-family: 'Dancing Script', cursive;
-            position: relative;
+            color: white;
         }
 
         @keyframes gradient {
@@ -28,45 +28,118 @@
             100% { background-position: 0% 50%; }
         }
 
-        .title {
+        h1 {
             font-size: 48px;
+            text-align: center;
+            display: none; /* Hide the header initially */
+        }
+
+        .button-container {
             display: flex;
-            margin-bottom: 20px;
-        }
-
-        .title span {
-            color: #ff69b4; /* Default color */
-            animation: colorChange 5s infinite;
-        }
-
-        @keyframes colorChange {
-            0%, 100% { color: #ff69b4; } /* Hot pink */
-            25% { color: #ff1493; } /* Deep pink */
-            50% { color: #ffb6c1; } /* Light pink */
-            75% { color: #ffc0cb; } /* Pink */
-        }
-
-        .square-container {
-            display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            margin-top: 30px;
+            display: none; /* Hide the main screen initially */
         }
 
-        .square {
-            width: 150px;
-            height: 150px;
-            background-size: cover;
-            background-position: center;
-            margin: 20px;
+        .button {
+            background: hotpink;
+            border: none;
+            cursor: pointer;
+            font-size: 48px; /* Increased button size */
+            margin: 0 20px; /* Increased margin */
+            width: 80px; /* Make buttons circular */
+            height: 80px; /* Make buttons circular */
+            border-radius: 50%; /* Make buttons circular */
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            cursor: pointer;
         }
 
-        .square:hover::before {
-            content: attr(data-name);
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .intro-container {
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-gif {
+            width: 50%;
+        }
+
+        .loading-text {
+            font-family: 'Sans', sans-serif;
+            color: pink;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .hello-kitty {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none; /* Hide initially */
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; background-color: white; }
+            to { opacity: 0; background-color: pink; }
+        }
+
+        .settings-container {
+            display: none; /* Hide settings container initially */
+            position: absolute;
+            top: 50px;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .settings-box {
+            width: 30%;
+            height: 200px;
+            background: grey;
+            animation: pulse 1s infinite;
+            border: 2px solid lightgrey;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulse {
+            0% { background-color: grey; }
+            50% { background-color: lightgrey; }
+            100% { background-color: grey; }
+        }
+
+        .slider {
+            width: 80%;
+        }
+
+        .credits-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: grey;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .credits-button:hover::after {
+            content: 'Credits';
             position: absolute;
             top: -30px;
             background-color: rgba(0, 0, 0, 0.7);
@@ -75,81 +148,100 @@
             border-radius: 5px;
             font-size: 14px;
         }
-
-        .square[data-name="Super Tetris (Kaylees Version)"] {
-            background-image: url('https://ios.najox.com/files/pictures/super_tetris.webp');
-        }
-
-        .square[data-name="Orginal Tetris"] {
-            background-image: url('https://m.media-amazon.com/images/I/61M3rDwh4qL.png');
-        }
-
-        .square[data-name="Sandtris"] {
-            background-image: url('https://d326lupd521z61.cloudfront.net/uploads/webp/images/sandtrix.webp');
-        }
-
-        .square[data-name="Block Blast"] {
-            background-image: url('https://images.igdb.com/igdb/image/upload/t_1080p_2x/co7oe8.webp');
-        }
-
-        .ribbons {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.pixabay.com/photo/2014/04/03/11/48/bow-312611_960_720.png') repeat;
-            background-size: 100px 100px;
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .menu-bar {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .menu-bar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: none;
-        }
-
-        .menu-bar:hover ul {
-            display: block;
-        }
-
-        .menu-bar li {
-            margin: 5px 0;
-        }
     </style>
 </head>
 <body>
-    <div class="menu-bar">
-        <span>Menu</span>
-        <ul>
-            <li onclick="location.href='home.html'">Home</li>
-            <li onclick="location.href='notes.html'">Notes</li>
-            <li onclick="location.href='settings.html'">Settings</li>
-        </ul>
+    <div class="intro-container" id="intro-container">
+        <img src="https://cdn.dribbble.com/users/563824/screenshots/3306683/untitled-6-110.gif" alt="Intro GIF" class="intro-gif">
+        <div class="loading-text">Loading...</div>
     </div>
 
-    <div class="title">
-        <span>T</span><span>e</span><span>t</span><span>r</span><span>i</span><span>s</span>
-        <span> </span><span>S</span><span>e</span><span>l</span><span>e</span><span>c</span><span>t</span><span>i</span><span>o</span><span>n</span>
+    <h1>My Girlfriend's Tetris Website</h1>
+    <div class="button-container">
+        <button class="button" onclick="location.href='all.html'">🎮</button>
+        <button class="button" onclick="location.href='notes.html'">📝</button>
+        <button class="button" onclick="toggleSettings()">⚙️</button>
     </div>
 
-    <div class="square-container">
-        <div class="square" data-name="Super Tetris (Kaylees Version)" onclick="location.href='super-tetris.html'"></div>
-        <div class="square" data-name="Orginal Tetris" onclick="location.href='original-tetris.html'"></div>
-        <div class="square" data-name="Sandtris" onclick="location.href='sandtris.html'"></div>
-        <div class="square" data-name="Block Blast" onclick="location.href='block-blast.html'"></div>
+    <div class="settings-container" id="settings-container">
+        <div class="settings-box">
+            <input type="range" min="0" max="360" value="0" class="slider" id="hue-slider">
+        </div>
+        <div class="settings-box">
+            <label for="google-tab-cloak">Turn on Google Tab Cloak</label>
+            <input type="checkbox" id="google-tab-cloak">
+        </div>
+        <div class="settings-box">
+            <button class="credits-button" onclick="location.href='credits.html'">🕴️</button>
+        </div>
     </div>
 
-    <div class="ribbons"></div>
+    <script>
+        const introContainer = document.getElementById('intro-container');
+        const mainContent = document.querySelector('.button-container');
+        const header = document.querySelector('h1');
+        const introGif = document.querySelector('.intro-gif');
+        const settingsContainer = document.getElementById('settings-container');
+
+        // Generate a random duration between 5-10 seconds
+        const randomDuration = Math.floor(Math.random() * 6000) + 5000;
+
+        setTimeout(() => {
+            introContainer.style.animation = 'fadeOut 1s forwards';
+            setTimeout(() => {
+                introContainer.style.display = 'none';
+                mainContent.style.display = 'flex';
+                header.style.display = 'block';
+
+                // Generate a random number of Hello Kitty logos (between 5-10)
+                const numberOfLogos = Math.floor(Math.random() * 6) + 5;
+
+                for (let i = 0; i < numberOfLogos; i++) {
+                    const logo = document.createElement('img');
+                    logo.src = 'https://pnghq.com/wp-content/uploads/pnghq.com-hello-kitty-logo-png-tran-7.png';
+                    logo.className = 'hello-kitty';
+                    logo.style.top = Math.random() * 100 + 'vh';
+                    logo.style.left = Math.random() * 100 + 'vw';
+                    logo.style.display = 'block'; // Show logos after animation ends
+
+                    logo.addEventListener('click', () => {
+                        logo.style.transition = 'opacity 1s';
+                        logo.style.opacity = 0;
+
+                        setTimeout(() => {
+                            logo.style.top = Math.random() * 100 + 'vh';
+                            logo.style.left = Math.random() * 100 + 'vw';
+                            logo.style.opacity = 1;
+                        }, 1000); // Match the fade out transition duration
+                    });
+
+                    document.body.appendChild(logo);
+                }
+
+            }, 1000); // Match the fadeOut animation duration
+        }, randomDuration);
+
+        function toggleSettings() {
+            settingsContainer.style.display = settingsContainer.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Hue slider event
+        const hueSlider = document.getElementById('hue-slider');
+        hueSlider.addEventListener('input', (event) => {
+            document.body.style.filter = `hue-rotate(${event.target.value}deg)`;
+        });
+
+        // Google Tab Cloak checkbox event
+        const googleTabCloak = document.getElementById('google-tab-cloak');
+        googleTabCloak.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                document.title = 'Google';
+                document.querySelector("link[rel='icon']").href = 'https://www.google.com/favicon.ico';
+            } else {
+                document.title = "My Girlfriend's Tetris Website";
+                document.querySelector("link[rel='icon']").href = 'https://i.pinimg.com/originals/33/95/06/339506e7f24dfe8a71da85e7de7961fc.png';
+            }
+        });
+    </script>
 </body>
 </html>
