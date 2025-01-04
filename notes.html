@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quote</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #FFC0CB, #FFFF00);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #quote-container {
+            text-align: center;
+        }
+
+        #quote {
+            font-family: 'Cursive', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #gif-container {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            #quote {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="quote-container">
+        <h1 id="quote"></h1>
+    </div>
+    <div id="gif-container">
+        <img src="https://i.pinimg.com/originals/36/80/48/3680488ab71368a1fea7a7fc2bbbd8f5.gif" alt="KITTY!!!">
+    </div>
+
+    <script>
+        const quotes = [
+            "I Love You So So Much My Love. - Your BF",
+            "Life is 10% what happens to us and 90% how we react to it. - Your BF",
+            "The only way to love someone, is to know someone like you. - Your BF",
+            "Always look in the right direction. Thats yours btw! - Your BF",
+            "We dated on the 29 of September 2024. Is just me or does it feel like thats the best day of my life? - Your BF"
+            "I Will never stop loving you! - Your BF"
+            "Even when we die, my grave will be next to you. - Your BF"
+        ];
+
+        function getDailyQuote() {
+            const date = new Date();
+            const startOfDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            const timeZoneOffsetCST = -6 * 60 * 60 * 1000; // Offset for CST
+            const startOfDayCST = new Date(startOfDay.getTime() + timeZoneOffsetCST);
+
+            // Calculate the index based on the number of milliseconds since start of the year divided by a day in milliseconds
+            const index = Math.floor((startOfDayCST - new Date(startOfDayCST.getFullYear(), 0, 0)) / (24 * 60 * 60 * 1000)) % quotes.length;
+            return quotes[index];
+        }
+
+        document.getElementById("quote").innerText = getDailyQuote();
+    </script>
+</body>
+</html>
