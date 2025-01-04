@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetris Selection</title>
+    <link rel="icon" type="image/webp" href="https://i.pinimg.com/originals/33/95/06/339506e7f24dfe8a71da85e7de7961fc.png">
+    <title>My Girlfriend's Tetris Website</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
@@ -14,10 +15,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, pink, lightpink);
-            background-size: 200% 200%;
+            background: linear-gradient(90deg, pink, lightpink, pink);
+            background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             font-family: 'Dancing Script', cursive;
+            color: white;
         }
 
         @keyframes gradient {
@@ -26,93 +28,36 @@
             100% { background-position: 0% 50%; }
         }
 
-        .square-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        h1 {
+            font-size: 48px;
+            text-align: center;
         }
 
-        .square {
-            width: 150px;
-            height: 150px;
-            background-size: cover;
-            background-position: center;
-            margin: 20px;
+        .button-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            position: relative;
+            margin-top: 20px;
+        }
+
+        .button {
+            background: transparent;
+            border: none;
             cursor: pointer;
+            font-size: 32px;
+            margin: 0 10px;
         }
 
-        .square:hover::before {
-            content: attr(data-name);
-            position: absolute;
-            top: -30px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .square[data-name="Super Tetris (Kaylees Version)"] {
-            background-image: url('https://ios.najox.com/files/pictures/super_tetris.webp');
-        }
-
-        .square[data-name="Orginal Tetris"] {
-            background-image: url('https://m.media-amazon.com/images/I/61M3rDwh4qL.png');
-        }
-
-        .square[data-name="Sandtris"] {
-            background-image: url('https://d326lupd521z61.cloudfront.net/uploads/webp/images/sandtrix.webp');
-        }
-
-        .square[data-name="Block Blast"] {
-            background-image: url('https://lh4.googleusercontent.com/yoNGUxwbXKN4_CNpdjPqrvZNuBhdgFOpqzGx1F-10mkbKcMz94DQ4qsOUqsUrUz-DamVL46NtnBikSRZ9SMgUCc=w1280');
-        }
-
-        .menu-bar {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .menu-bar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: none;
-        }
-
-        .menu-bar:hover ul {
-            display: block;
-        }
-
-        .menu-bar li {
-            margin: 5px 0;
+        .button:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="menu-bar">
-        <span>Menu</span>
-        <ul>
-            <li onclick="location.href='home.html'">Home</li>
-            <li onclick="location.href='notes.html'">Notes</li>
-            <li onclick="location.href='settings.html'">Settings</li>
-        </ul>
-    </div>
-
-    <div class="square-container">
-        <div class="square" data-name="Super Tetris (Kaylees Version)" onclick="location.href='super-tetris.html'"></div>
-        <div class="square" data-name="Orginal Tetris" onclick="location.href='original-tetris.html'"></div>
-        <div class="square" data-name="Sandtris" onclick="location.href='sandtris.html'"></div>
-        <div class="square" data-name="Block Blast" onclick="location.href='block-blast.html'"></div>
+    <h1>My Girlfriend's Tetris Website</h1>
+    <div class="button-container">
+        <button class="button" onclick="location.href='all.html'">🎮</button>
+        <button class="button" onclick="location.href='notes.html'">📝</button>
+        <button class="button" onclick="location.href='settings.html'">⚙️</button>
     </div>
 </body>
 </html>
