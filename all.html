@@ -32,6 +32,7 @@
             font-size: 48px;
             display: flex;
             margin-bottom: 20px;
+            display: none; /* Hide initially */
         }
 
         .title span {
@@ -50,6 +51,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            display: none; /* Hide initially */
         }
 
         .square {
@@ -110,6 +112,7 @@
             border-radius: 10px;
             padding: 10px;
             cursor: pointer;
+            display: none; /* Hide initially */
         }
 
         .menu-bar ul {
@@ -126,15 +129,98 @@
         .menu-bar li {
             margin: 5px 0;
         }
+
+        .settings-container {
+            display: none; /* Hide settings container initially */
+            position: absolute;
+            top: 70px;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .settings-box {
+            width: 30%;
+            height: 200px;
+            background: grey;
+            animation: pulse 1s infinite;
+            border: 2px solid lightgrey;
+            display: none; /* Hide settings boxes initially */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulse {
+            0% { background-color: grey; }
+            50% { background-color: lightgrey; }
+            100% { background-color: grey; }
+        }
+
+        .slider {
+            width: 80%;
+        }
+
+        .credits-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: grey;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .credits-button:hover::after {
+            content: 'Credits';
+            position: absolute;
+            top: -30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .intro-container {
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-gif {
+            width: 50%;
+        }
+
+        .loading-text {
+            font-family: 'Sans', sans-serif;
+            color: pink;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
+    <div class="intro-container" id="intro-container">
+        <img src="https://cdn.dribbble.com/users/563824/screenshots/3306683/untitled-6-110.gif" alt="Intro GIF" class="intro-gif">
+        <div class="loading-text">Loading...</div>
+    </div>
+
     <div class="menu-bar">
         <span>Menu</span>
         <ul>
             <li onclick="location.href='home.html'">Home</li>
             <li onclick="location.href='notes.html'">Notes</li>
-            <li onclick="location.href='settings.html'">Settings</li>
+            <li onclick="toggleSettings()">Settings</li>
         </ul>
     </div>
 
@@ -151,5 +237,25 @@
     </div>
 
     <div class="ribbons"></div>
-</body>
-</html>
+
+    <div class="settings-container" id="settings-container">
+        <div class="settings-box">
+            <input type="range" min="0" max="360" value="0" class="slider" id="hue-slider">
+        </div>
+        <div class="settings-box">
+            <label for="google-tab-cloak">Turn on Google Tab Cloak</label>
+            <input type="checkbox" id="google-tab-cloak">
+        </div>
+        <div class="settings-box">
+            <button class="credits-button" onclick="location.href='credits.html'">🕴️</button>
+        </div>
+    </div>
+
+    <script>
+        const introContainer = document.getElementById('intro-container');
+        const mainContent = document.querySelector('.square-container');
+        const header = document.querySelector('.title');
+        const menuBar = document.querySelector('.menu-bar');
+        const introGif = document.querySelector('.intro-gif');
+        const settingsContainer = document.getElementById('settings-container');
+        const settingsBoxes = document.querySelectorAll('.settings-box[_{{{CITATION{{{_1{](https://github.com/AnnieGlade4327/Team-Profile-Generator/tree/de9031cbd2c32f9d6f610c40af1bb0d04b57510d/src%2Ftemplate.js)[_{{{CITATION{{{_2{](https://github.com/pgmgent-thibdema/Corona_referral_platform/tree/383d0c98d4cea4ad5c3d0dc49618569f30821a45/views%2Flayout%2Fstarter.php)[_{{{CITATION{{{_3{](https://github.com/PharaonicDev/fashion-plus/tree/ddc1edf72b27b0e8814b8b7257a709282c872644/pages%2Fmen.php)
