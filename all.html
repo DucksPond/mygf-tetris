@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Selection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, pink, lightpink);
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .square-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .square {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .square:hover::before {
+            content: attr(data-name);
+            position: absolute;
+            top: -30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .square[data-name="Super Tetris (Kaylees Version)"] {
+            background-image: url('super-tetris-image.jpg');
+        }
+
+        .square[data-name="Orginal Tetris"] {
+            background-image: url('original-tetris-image.jpg');
+        }
+
+        .square[data-name="Sandtris"] {
+            background-image: url('sandtris-image.jpg');
+        }
+
+        .square[data-name="Block Blast"] {
+            background-image: url('block-blast-image.jpg');
+        }
+
+        .square:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-bar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+        }
+
+        .menu-bar:hover ul {
+            display: block;
+        }
+
+        .menu-bar li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <span>Menu</span>
+        <ul>
+            <li onclick="location.href='home.html'">Home</li>
+            <li onclick="location.href='notes.html'">Notes</li>
+            <li onclick="location.href='settings.html'">Settings</li>
+        </ul>
+    </div>
+
+    <div class="square-container">
+        <div class="square" data-name="Super Tetris (Kaylees Version)" onclick="location.href='super-tetris.html'"></div>
+        <div class="square" data-name="Orginal Tetris" onclick="location.href='original-tetris.html'"></div>
+        <div class="square" data-name="Sandtris" onclick="location.href='sandtris.html'"></div>
+        <div class="square" data-name="Block Blast" onclick="location.href='block-blast.html'"></div>
+    </div>
+</body>
+</html>
